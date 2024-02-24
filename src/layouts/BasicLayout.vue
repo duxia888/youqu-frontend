@@ -11,6 +11,7 @@ const onClickRight = () => {
   router.push('/search')
 };
 const onChange = (index) => Toast(`标签 ${index}`);
+
 </script>
 
 <template>
@@ -41,5 +42,7 @@ const onChange = (index) => Toast(`标签 ${index}`);
 </template>
 
 <style scoped>
-
+#content {
+  padding-bottom: 60px;
+}
 </style>

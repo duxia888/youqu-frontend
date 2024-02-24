@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import {UserType} from "../models/user";
+
+interface UserCardListProps {
+  // loading: boolean;
+  userList: UserType[];
+}
+
+const props = withDefaults(defineProps<UserCardListProps>(), {
+  // loading: true,
+  // @ts-ignore
+  userList: [] as UserType[],
+});
+
+</script>
+
 <template>
   <van-skeleton title avatar :row="3" :loading="props.loading" v-for="user in props.userList">
     <van-card
@@ -16,22 +32,6 @@
     </van-card>
   </van-skeleton>
 </template>
-
-<script setup lang="ts">
-import {UserType} from "../models/user";
-
-interface UserCardListProps {
-  loading: boolean;
-  userList: UserType[];
-}
-
-const props = withDefaults(defineProps<UserCardListProps>(), {
-  loading: true,
-  // @ts-ignore
-  userList: [] as UserType[],
-});
-
-</script>
 
 <style scoped>
 
