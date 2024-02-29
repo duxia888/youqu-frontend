@@ -1,28 +1,42 @@
 <script setup>
-import {Toast} from "vant";
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
+import {ref} from "vue";
+import routes from "../config/route";
 
 const router = useRouter();
+const DEFAULT_TITLE = '伙伴匹配';
+const title = ref(DEFAULT_TITLE);
+
+/**
+ * 根据路由切换标题
+ */
+router.beforeEach((to, from) => {
+  const toPath = to.path;
+  const route = routes.find((route) => {
+    return toPath == route.path;
+  })
+  title.value = route?.title ?? DEFAULT_TITLE;
+})
 
 const onClickLeft = () => {
-  router.back()
+  router.back();
 };
+
 const onClickRight = () => {
   router.push('/search')
 };
-const onChange = (index) => Toast(`标签 ${index}`);
+
 
 </script>
 
 <template>
   <!--引入导航栏-->
   <van-nav-bar
-      title="标题"
+      :title="title"
       left-arrow
       @click-left="onClickLeft"
       @click-right="onClickRight"
   >
-    <!-- 插槽语法 -->
     <template #right>
       <van-icon name="search" size="18"/>
     </template>

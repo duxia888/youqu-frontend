@@ -62,7 +62,6 @@ onMounted( () => {
 const onSearch = (val) => {
   listTeam(val);
 };
-
 </script>
 
 <template>

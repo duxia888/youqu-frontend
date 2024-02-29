@@ -30,7 +30,6 @@ const listTeam = async (val = '') => {
   }
 }
 
-
 // 页面加载时只触发一次
 onMounted( () => {
   listTeam();

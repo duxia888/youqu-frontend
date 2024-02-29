@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import {useRouter} from "vue-router";
+import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import {getCurrentUser} from "../services/user";
 
@@ -17,12 +17,22 @@ import {getCurrentUser} from "../services/user";
 
 const user = ref();
 
-// const router = useRouter();
+const router = useRouter();
 
 onMounted(async () => {
   user.value = await getCurrentUser();
 })
 
+// const toEdit = (editKey: string, editName: string, currentValue: string) => {
+//   router.push({
+//     path: '/user/edit',
+//     query: {
+//       editKey,
+//       editName,
+//       currentValue,
+//     }
+//   })
+// }
 </script>
 
 <template>

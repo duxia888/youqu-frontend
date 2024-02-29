@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import {useRouter} from "vue-router";
 import {ref} from "vue";
 import myAxios from "../plugins/myAxios.ts";
 import {Toast} from "vant";
+import {useRoute} from "vue-router";
 
 // 向其他页面传参数的钩子
-const router = useRouter();
+const route = useRoute();
 const userAccount = ref('');
 const userPassword = ref('');
 const onSubmit = async () => {
@@ -16,8 +16,9 @@ const onSubmit = async () => {
   console.log(res, '用户登录');
   if (res.code === 0 && res.data) {
     Toast.success('登录成功');
-    router.replace('/');
-  }else {
+    //跳转到之前的页面
+    const redirectUrl = route.query?.redirect as string ?? '/';
+    window.location.href = redirectUrl;  }else {
     Toast.fail('登录失败');
   }
 };

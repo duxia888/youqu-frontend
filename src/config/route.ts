@@ -1,6 +1,6 @@
 import Index from "../pages/Index.vue";
 import Team from "../pages/TeamPage.vue";
-import Talk from "../pages/TalkPage.vue";
+import TalkPage from "../pages/TalkPage.vue";
 import UserEditPage from "../pages/UserEditPage.vue";
 import SearchPage from "../pages/SearchPage.vue";
 import SearchResultPage from "../pages/SearchResultPage.vue";
@@ -18,7 +18,7 @@ const routes = [
     { path: '/team', title: '找队伍', component: Team },
     { path: '/team/add', title: '创建队伍', component: TeamAddPage },
     { path: '/team/update', title: '更新队伍', component: TeamUpdatePage },
-    { path: '/talk', component: Talk },
+    { path: '/talk', title: '聊天', component: TalkPage },
     { path: '/user', title: '个人信息', component: UserPage },
     { path: '/search', title: '找伙伴', component: SearchPage },
     { path: '/user/list', title: '用户列表', component: SearchResultPage },
