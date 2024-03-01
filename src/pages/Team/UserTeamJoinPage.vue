@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
-import {useRouter} from "vue-router";
-import TeamCardList from "../components/TeamCardList.vue";
+// import {useRouter} from "vue-router";
+import TeamCardList from "../../components/TeamCardList.vue";
 import {onMounted, ref} from "vue";
-import myAxios from "../plugins/myAxios";
+import myAxios from "../../plugins/myAxios.ts";
 import {Toast} from "vant";
 
-const router = useRouter();
+// const router = useRouter();
 const searchText = ref('');
 
 const teamList = ref([]);

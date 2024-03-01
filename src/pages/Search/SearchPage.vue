@@ -75,7 +75,7 @@ const doSearchResult = () => {
 </script>
 
 <template>
-  <form action="/">
+  <form action="/public">
     <van-search
         v-model="searchText"
         show-action

@@ -11,7 +11,7 @@ export type UserType = {
     phone:string;
     email:string;
     userStatus:number;
-    tags:string[];
+    tags:string;
     userRole:number;
     createTime:Date;
 };

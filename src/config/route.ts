@@ -1,16 +1,16 @@
 import Index from "../pages/Index.vue";
-import Team from "../pages/TeamPage.vue";
+import Team from "../pages/Team/TeamPage.vue";
 import TalkPage from "../pages/TalkPage.vue";
-import UserEditPage from "../pages/UserEditPage.vue";
-import SearchPage from "../pages/SearchPage.vue";
-import SearchResultPage from "../pages/SearchResultPage.vue";
-import UserLoginPage from "../pages/UserLoginPage.vue";
-import TeamAddPage from "../pages/TeamAddPage.vue";
-import UserTeamJoinPage from "../pages/UserTeamJoinPage.vue";
-import UserTeamCreatePage from "../pages/UserTeamCreatePage.vue";
-import UserUpdatePage from "../pages/UserUpdatePage.vue";
-import TeamUpdatePage from "../pages/TeamUpdatePage.vue";
-import UserPage from "../pages/UserPage.vue";
+import UserEditPage from "../pages/User/UserEditPage.vue";
+import SearchPage from "../pages/Search/SearchPage.vue";
+import SearchResultPage from "../pages/Search/SearchResultPage.vue";
+import UserLoginPage from "../pages/User/UserLoginPage.vue";
+import TeamAddPage from "../pages/Team/TeamAddPage.vue";
+import UserTeamJoinPage from "../pages/Team/UserTeamJoinPage.vue";
+import UserTeamCreatePage from "../pages/Team/UserTeamCreatePage.vue";
+import UserUpdatePage from "../pages/User/UserUpdatePage.vue";
+import TeamUpdatePage from "../pages/Team/TeamUpdatePage.vue";
+import UserPage from "../pages/User/UserPage.vue";
 
 //定义一些路由
 const routes = [

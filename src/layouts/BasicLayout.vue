@@ -27,10 +27,10 @@ const onClickRight = () => {
 };
 
 
+
 </script>
 
 <template>
-  <!--引入导航栏-->
   <van-nav-bar
       :title="title"
       left-arrow
@@ -41,16 +41,13 @@ const onClickRight = () => {
       <van-icon name="search" size="18"/>
     </template>
   </van-nav-bar>
-
   <div id="content">
-    <router-view />
+    <router-view/>
   </div>
-
-  <!--引入任务栏-->
-  <van-tabbar route @change="onChange">
+  <van-tabbar>
     <van-tabbar-item to="/" icon="home-o" name="index">主页</van-tabbar-item>
     <van-tabbar-item to="/team" icon="search" name="team">队伍</van-tabbar-item>
-    <van-tabbar-item to="/talk" icon="chat-o" badge="99" name="talk">聊天</van-tabbar-item>
+    <van-tabbar-item to="/talk" icon="chat-o" badge="99" name="team">聊天</van-tabbar-item>
     <van-tabbar-item to="/user" icon="friends-o" name="user">个人</van-tabbar-item>
   </van-tabbar>
 </template>
