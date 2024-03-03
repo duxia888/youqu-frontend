@@ -16,7 +16,8 @@
     "qs": "^6.11.2",
     "vant": "^3.6.12",
     "vue": "^3.3.11",
-    "vue-router": "4"
+    "vue-router": "4",
+    "vue3-emoji": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.20",

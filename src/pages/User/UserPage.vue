@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
-import {getCurrentUser} from "../../services/user.ts";
+import {getCurrent} from "../../services/currentUser.ts";
+import MyAxios from "../../plugins/myAxios.ts";
+import {Toast} from "vant";
 
 // const user = {
 //   id: 3,
@@ -20,8 +22,17 @@ const user = ref();
 const router = useRouter();
 
 onMounted(async () => {
-  user.value = await getCurrentUser();
+  user.value = await getCurrent();
 })
+
+const loginOut = async () => {
+  const loginOut = await MyAxios.post("/user/logout", {})
+  sessionStorage.clear()
+  if (loginOut) {
+    Toast.success("退出成功")
+    router.replace("/user/login").catch(e => console.log(e))
+  }
+}
 
 // const toEdit = (editKey: string, editName: string, currentValue: string) => {
 //   router.push({
@@ -41,6 +52,9 @@ onMounted(async () => {
     <van-cell title="修改信息" is-link to="/user/update" />
     <van-cell title="我创建的队伍" is-link to="/user/team/create" />
     <van-cell title="我加入的队伍" is-link to="/user/team/join" />
+    <van-space style="margin: 13px" direction="vertical" fill>
+      <van-button type="primary" @click="loginOut" block>退出登录</van-button>
+    </van-space>
   </template>
 </template>
 

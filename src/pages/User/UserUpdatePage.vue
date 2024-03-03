@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
-import {getCurrentUser} from "../../services/user.ts";
+import {getCurrent} from "../../services/currentUser.ts";
 
 // const user = {
 //   id: 3,
@@ -18,7 +18,7 @@ import {getCurrentUser} from "../../services/user.ts";
 const user = ref();
 
 onMounted(async () => {
-  user.value = await getCurrentUser();
+  user.value = await getCurrent();
 })
 
 const router = useRouter();

@@ -1,0 +1,124 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    margin: 10px 10px;
+}
+
+.content {
+    padding-top: 22px;
+    padding-bottom: 57px;
+    display: flex;
+    flex-direction: column
+}
+
+.heard {
+    position: fixed;
+    height: 30px;
+    margin-top: -5px;;
+    width: 100%;
+    align-self: center;
+    background-color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.self {
+    align-self: flex-end;
+}
+
+.avatar {
+    align-self: flex-start;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.username {
+    align-self: flex-start;
+    text-align: center;
+    max-width: 200px;
+    font-size: 12px;
+    color: #999;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    overflow: visible;
+    background-color: #fff;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+}
+
+.myInfo {
+    align-self: flex-start;
+}
+
+.text {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #eee;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.other .text {
+    align-self: flex-start;
+}
+
+.admin {
+    background-color: rgba(253, 0, 0, 0.13);
+}
+
+.self .text {
+    background-color: #0084ff;
+    color: #fff;
+}
+
+.input-text {
+    width: 100%;
+    height: 62px;
+    border-top: rgba(150, 151, 153, 0.76) 0.5px solid;
+    padding: 8px  10px 8px 50px;
+    outline: none;
+    resize: none;
+    max-height: 130px;
+    overflow-y: auto;
+    font-size: 15px;
+}
+
+.input-send-button {
+    height: 64px;
+    border-top: rgba(150, 151, 153, 0.76) 0.5px solid;
+    border-left: rgba(150, 151, 153, 0.76) 0.5px solid;
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #0094fe;
+    width: 80px;
+    margin-bottom: 15px;
+    line-height: 40px;
+    text-align: center;
+    padding-right: 3px;
+}
+
+.send {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}

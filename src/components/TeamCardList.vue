@@ -5,7 +5,7 @@ import cat from '../assets/waterCat.png';
 import myAxios from "../plugins/myAxios";
 import {Dialog, Toast} from "vant";
 import {onMounted, ref} from "vue";
-import {getCurrentUser} from "../services/user";
+import {getCurrent} from "../services/currentUser.ts";
 import {useRouter} from "vue-router";
 
 const showPasswordDialog = ref(false);
@@ -18,7 +18,7 @@ const currentUser = ref();
 const router = useRouter();
 
 onMounted(async () => {
-  currentUser.value = await getCurrentUser();
+  currentUser.value = await getCurrent();
 })
 
 interface TeamCardListProps {

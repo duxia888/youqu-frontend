@@ -3,7 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {ref} from "vue";
 import myAxios from "../../plugins/myAxios.ts";
 import {Toast} from "vant";
-import {getCurrentUser} from "../../services/user.ts";
+import {getCurrent} from "../../services/currentUser.ts";
 
 //获取当前页面路由信息的钩子
 const route = useRoute();
@@ -16,7 +16,7 @@ const editUser = ref({
 
 
 const onSubmit = async () => {
-  const currentUser = await getCurrentUser();
+  const currentUser = await getCurrent();
   if (!currentUser) {
     Toast.fail('用户未登录');
     return;

@@ -1,4 +1,5 @@
 import axios, {AxiosInstance} from "axios";
+import {Toast} from "vant";
 
 const myAxios: AxiosInstance = axios.create({
     baseURL: 'http://localhost:8080/api'
@@ -19,13 +20,17 @@ myAxios.interceptors.request.use(function (config) {
 // Add a response interceptor
 myAxios.interceptors.response.use(function (response) {
     console.log("我收到你的响应啦",response);
-    // 未登录则跳转到登录页
-    if (response?.data?.code === 40100) {
-        const redirectUrl = window.location.href;
-        window.location.href = `/user/login?redirect=${redirectUrl}`;
-    }
     // Do something with response data
-    return response.data;
+    const data = response.data;
+    console.log("收到的数据",data);
+    if (data?.code === 40100) {
+        Toast("未登录")
+        const redirectUrl = window.location.href
+        window.location.href = `/user/login?redirect=${redirectUrl}`
+    }
+    // 2xx 范围内的状态码都会触发该函数。
+    // 对响应数据做点什么
+    return data;
 }, function (error) {
     // Do something with response error
     return Promise.reject(error);
