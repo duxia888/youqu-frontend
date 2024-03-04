@@ -30,6 +30,8 @@ const props = withDefaults(defineProps<TeamCardListProps>(), {
   teamList: [] as TeamType[],
 });
 
+console.log("props.teamList",props)
+
 const preJoinTeam = (team: TeamType) => {
   joinTeamId.value = team.id;
   if (team.status === 0) {
@@ -124,6 +126,9 @@ const doDeleteTeam = async (id: number) => {
             teamStatusEnum[team.status]
           }}
         </van-tag>
+        <van-tag plain style="color: #F0AF8F;margin-right: 8px; margin-top: 8px" type="primary">
+          队长：{{ team.createUser.username }}
+        </van-tag>
       </template>
       <template #bottom>
         <div>
@@ -137,17 +142,17 @@ const doDeleteTeam = async (id: number) => {
         </div>
       </template>
       <template #footer>
-        <van-button size="small" type="primary" v-if="team.userId !== currentUser?.id && !team.hasJoin" plain @click="preJoinTeam(team)">
+        <van-button size="mini" type="primary" v-if="team.userId !== currentUser?.id && !team.hasJoin" plain icon="plus" @click="preJoinTeam(team) ">
           加入队伍
         </van-button>
-        <van-button v-if="team.userId === currentUser?.id" size="small" plain
+        <van-button v-if="team.userId === currentUser?.id" size="mini" plain
                     @click="doUpdateTeam(team.id)">更新队伍
         </van-button>
         <!-- 仅加入队伍可见 -->
-        <van-button v-if="team.userId !== currentUser?.id && team.hasJoin" size="small" plain
+        <van-button v-if="team.userId !== currentUser?.id && team.hasJoin" size="mini" plain
                     @click="doQuitTeam(team.id)">退出队伍
         </van-button>
-        <van-button v-if="team.userId === currentUser?.id" size="small" type="danger" plain
+        <van-button v-if="team.userId === currentUser?.id" size="mini" type="danger" plain
                     @click="doDeleteTeam(team.id)">解散队伍
         </van-button>
       </template>

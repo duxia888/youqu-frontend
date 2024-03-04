@@ -13,7 +13,7 @@ const initFormData = {
   "name": "",
   "description": "",
   "expireTime": null,
-  "maxNum": 3,
+  "maxNum": 1,
   "password": "",
   "status": 0,
 }
@@ -82,7 +82,7 @@ const onSubmit = async () => {
         </van-popup>
         <van-field name="stepper" label="最大人数">
           <template #input>
-            <van-stepper v-model="addTeamData.maxNum" max="10" min="3"/>
+            <van-stepper v-model="addTeamData.maxNum" max="10" min="1"/>
           </template>
         </van-field>
         <van-field name="radio" label="队伍状态">

@@ -8,6 +8,8 @@ import '../global.css'
 import BasicLayout from "./layouts/BasicLayout.vue";
 import FriendsPage from "./pages/Friends/FriendsPage.vue";
 import ChatCommon from "./components/ChatCommon.vue";
+import UserLoginPage from "./pages/User/UserLoginPage.vue";
+import UserRegister from "./pages/User/UserRegister.vue";
 
 const app = createApp(App);
 app.use(Vant);
@@ -19,8 +21,9 @@ const router = VueRouter.createRouter({
 })
 app.component("default-layout", BasicLayout)
 app.component("friends-layout", FriendsPage)
+app.component("login-layout", UserLoginPage)
+app.component("register-layout", UserRegister)
 app.component("public_chat-layout", ChatCommon)
-
 
 app.use(router);
 app.mount('#app')

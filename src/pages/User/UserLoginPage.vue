@@ -2,13 +2,14 @@
 import {ref} from "vue";
 import myAxios from "../../plugins/myAxios.ts";
 import {Toast} from "vant";
-import {useRoute} from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import {defaultPicture} from "../../components/userCommon.ts";
 
 // 向其他页面传参数的钩子
 const route = useRoute();
 const userAccount = ref('');
 const userPassword = ref('');
+
 const onSubmit = async () => {
   const res = await myAxios.post('/user/login', {
     userAccount: userAccount.value,

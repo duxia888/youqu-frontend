@@ -78,7 +78,7 @@ const stopHeartbeat = () => {
 const chatRoom = ref(null)
 
 onMounted(async () => {
-  console.log("route.query",route.query)
+  // console.log("route.query",route.query)
   let {id, username, userType, teamId, teamName, teamType} = route.query
   stats.value.chatUser.id = Number.parseInt(id)
   stats.value.team.teamId = Number.parseInt(teamId)
@@ -162,6 +162,7 @@ const init = () => {
       if (msg.data === "pong") {
         return;
       }
+      console.log("msg",msg)
       // 对收到的json数据进行解析，
       let data = JSON.parse(msg.data)
       if (data.error) {

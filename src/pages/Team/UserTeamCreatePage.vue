@@ -1,12 +1,3 @@
-<template>
-  <div id="teamPage">
-    <van-search v-model="searchText" placeholder="搜索队伍" @search="onSearch" />
-    <van-button type="primary" @click="doJoinTeam">创建队伍</van-button>
-    <team-card-list :teamList="teamList" />
-    <van-empty v-if="teamList?.length < 1" description="数据为空"/>
-  </div>
-</template>
-
 <script setup lang="ts">
 
 import {useRouter} from "vue-router";
@@ -36,6 +27,7 @@ const listTeam = async (val = '') => {
   const res = await myAxios.get("/team/list/my/create", {
     params: {
       searchText: val,
+      selectTeam: true,
       pageNum: 1,
     },
   });
@@ -57,6 +49,15 @@ const onSearch = (val) => {
 };
 
 </script>
+
+<template>
+  <div id="teamPage">
+    <van-search v-model="searchText" placeholder="搜索队伍" @search="onSearch" />
+    <van-button type="primary" @click="doJoinTeam">创建队伍</van-button>
+    <team-card-list :teamList="teamList" />
+    <van-empty v-if="teamList?.length < 1" description="数据为空"/>
+  </div>
+</template>
 
 <style scoped>
 #teamPage {

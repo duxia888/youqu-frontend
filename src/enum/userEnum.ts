@@ -1,6 +1,7 @@
 export enum UserEnum {
-    Male = 1,
-    Female = 2,
+    Male = 0,
+    Female = 1,
+    Secrecy
 }
 
 export enum UserRoleEnum {
@@ -16,8 +17,9 @@ export enum UserStatus {
 
 
 const gender = [
-    {text: '男', value: 1},
-    {text: '女', value: 2},
+    {text: '男', value: 0},
+    {text: '女', value: 1},
+    {text: '保密', value: 2},
 ];
 
 const role = [
@@ -34,8 +36,9 @@ const roleId = {
 }
 
 const genderId = {
-    "男": 1,
-    "女": 2
+    "男": 0,
+    "女": 1,
+    "保密": 2,
 }
 export {
     gender, genderId, roleId, role

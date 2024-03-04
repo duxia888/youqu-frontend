@@ -20,6 +20,7 @@ const listTeam = async (val = '') => {
   const res = await myAxios.get("/team/list/my/join", {
     params: {
       searchText: val,
+      selectTeam: true,
       pageNum: 1,
     },
   });

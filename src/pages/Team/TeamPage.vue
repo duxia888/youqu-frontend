@@ -68,13 +68,23 @@ const onSearch = (val) => {
   <div id="teamPage">
     <van-search v-model="searchText" placeholder="搜索队伍" @search="onSearch" />
     <van-tabs v-model:active="active" @change="onTabChange">
-      <van-tab title="公开" name="public" />
-      <van-tab title="加密" name="private" />
+      <van-tab name="public" title="公开">
+        <template #title>
+          <van-icon name="fire-o" color="#ee0a24" size="16px"/>
+          公开
+        </template>
+      </van-tab>
+      <van-tab name="private" title="加密">
+        <template #title>
+          <van-icon name="lock" size="16px"/>
+          加密
+        </template>
+      </van-tab>
     </van-tabs>
     <div style="margin-bottom: 16px" />
-    <van-button class="add-button" type="primary" icon="plus" @click="toAddTeam" />
     <team-card-list :teamList="teamList" />
     <van-empty v-if="teamList?.length < 1" description="数据为空"/>
+    <van-button class="add-button" type="primary" icon="plus" @click="toAddTeam" />
   </div>
 </template>
 

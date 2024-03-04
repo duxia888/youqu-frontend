@@ -67,7 +67,7 @@ const onClickRight = async () => {
 <!--      <van-icon name="search" size="18"/>-->
 <!--    </template>-->
 <!--  </van-nav-bar>-->
-  <van-nav-bar v-if="!NOT_SHOW_NAVBAR_AND_TABBAR.includes(route.path)" fixed="fixed" left-arrow left-text="返回"
+  <van-nav-bar v-if="!NOT_SHOW_NAVBAR_AND_TABBAR.includes(route.path)" fixed="fixed" left-arrow
                :title="title" @click-right="onClickRight" @click-left="onClickLeft">
     <template v-if="route.path ==='/friends'|| !SHOW_SEARCH.includes(route.path)" #right>
       <van-badge :content="applyFriendsCount" v-if="applyFriendsCount>0">

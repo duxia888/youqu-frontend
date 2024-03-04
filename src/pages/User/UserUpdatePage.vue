@@ -33,20 +33,40 @@ const toEdit = (editKey: string, editName: string, currentValue: string) => {
     }
   })
 }
+
+const updatePassword = (id: number) => {
+  router.push({
+    path: "/user/password",
+    query: {
+      id: id,
+    }
+  })
+}
 </script>
 
 <template>
   <template v-if="user">
-    <van-cell title="昵称" is-link to="/user/edit" :value="user.username"  @click="toEdit('username', '昵称', user.username)"/>
-    <van-cell title="账号" :value="user.userAccount"/>
-    <van-cell title="头像" is-link to="/user/edit">
-      <img style="height: 48px" :src="user.avatarUrl"/>
+    <van-cell center title="头像" is-link to="/user/edit">
+      <img style="width: 60px;height: 60px;border-radius: 50%" :src="user.avatarUrl"/>
     </van-cell>
-    <van-cell title="性别" is-link :value="user.gender" @click="toEdit('gender', '性别', user.gender)"/>
-    <van-cell title="电话" is-link to="/user/edit" :value="user.phone" @click="toEdit('phone', '电话', user.phone)"/>
-    <van-cell title="邮箱" is-link to="/user/edit" :value="user.email" @click="toEdit('email', '邮箱', user.email)"/>
-    <van-cell title="注册时间" :value="user.createTime"/>
-  </template>
+    <van-cell center title="昵称" is-link to="/user/edit" :value="user.username"  @click="toEdit('username', '昵称', user.username)"/>
+    <van-cell center title="账号" :value="user.userAccount"/>
+    <van-cell center title="性别" is-link :value="user.gender" @click="toEdit('gender', '性别', user.gender)">
+      <span v-if="user.gender===0">男</span>
+      <span v-else-if="user.gender===1">女</span>
+      <span v-else-if="user.gender===2">保密</span>
+      <span v-else>{{ "还没有填写性别" }}</span>
+    </van-cell>
+    <van-cell title="标签" to="/user/tag" is-link/>
+    <van-cell center title="电话" is-link to="/user/edit" :value="user.phone" @click="toEdit('phone', '电话', user.phone)"/>
+    <van-cell center title="邮箱" is-link to="/user/edit" :value="user.email" @click="toEdit('email', '邮箱', user.email)"/>
+    <van-cell center title="注册时间" :value="user.createTime"/>
+    <van-cell value="点击修改" icon="eye-o" is-link
+              @click="updatePassword(user.id)">
+      <template #title>
+        <span class="custom-title">修改密码</span>
+      </template>
+    </van-cell>  </template>
 </template>
 
 <style scoped>
