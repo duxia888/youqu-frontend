@@ -170,7 +170,7 @@ const doQuitCancel = () => {
 </script>
 
 <template>
-  <form action="/super-web/public">
+  <form action="/youqu-web/public">
     <van-search
         v-model="searchText"
         placeholder="请输入要搜索的标签"

@@ -1,4 +1,6 @@
-export const defaultPicture = "https://img.qimuu.icu/typory/teamImg1.jpg"
+import boys from "../assets/boys.jpeg"
+
+export const defaultPicture = boys
 
 export const jsonParseTag = (usersList) => {
     usersList.forEach(user => {

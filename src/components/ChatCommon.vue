@@ -143,7 +143,7 @@ const init = () => {
     Toast.fail("您的浏览器不支持WebSocket")
   } else {
     // 区分线上和开发环境
-    let socketUrl = process.env.NODE_ENV !== "development" ? `wss://qimuu.icu/api/websocket/${uid}/${stats.value.team.teamId}`
+    let socketUrl = process.env.NODE_ENV !== "development" ? `wss://duxia.icu/api/websocket/${uid}/${stats.value.team.teamId}`
         : `ws://localhost:8080/api/websocket/${uid}/${stats.value.team.teamId}`
     // let socketUrl = `ws://localhost:8080/api/websocket/${uid}/${stats.value.team.teamId}`
     if (socket != null) {
