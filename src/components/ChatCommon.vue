@@ -15,7 +15,7 @@ const stats = ref({
   user: {
     id: 0,
     username: "",
-    userAvatarUrl: ''
+    avatarUrl: ''
   },
   isCollapse: false,
   users: [],
@@ -270,7 +270,7 @@ const createContent = (remoteUser, nowUser, text, isAdmin,createTime) => {
     html = `
     <div class="message self">
     <div class="myInfo info">
-      <img :alt=${nowUser.username} class="avatar" onclick="showUser(${nowUser.id})" src=${nowUser.userAvatarUrl ?? defaultPicture}>
+      <img :alt=${nowUser.username} class="avatar" onclick="showUser(${nowUser.id})" src=${nowUser.avatarUrl ?? defaultPicture}>
     </div>
       <p class="text">${text}</p>
     </div>
@@ -279,7 +279,7 @@ const createContent = (remoteUser, nowUser, text, isAdmin,createTime) => {
     // remoteUser表示远程用户聊天消息，灰色的气泡
     html = `
      <div class="message other">
-      <img :alt=${remoteUser.username} class="avatar" onclick="showUser(${remoteUser.id})" src=${remoteUser.userAvatarUrl ?? defaultPicture}>
+      <img :alt=${remoteUser.username} class="avatar" onclick="showUser(${remoteUser.id})" src=${remoteUser.avatarUrl ?? defaultPicture}>
     <div class="info">
       <span class="username">${remoteUser.username.length < 10 ? remoteUser.username : remoteUser.username.slice(0, 10)}&nbsp;&nbsp;&nbsp;${createTime}</span>
       <p class="${isAdmin ? 'admin text' : 'text'}" >${text}</p>

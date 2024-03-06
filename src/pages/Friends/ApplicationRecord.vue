@@ -114,7 +114,7 @@ const showUser = (id: number) => {
         <li v-else v-for="friend in status.myApplyFriends" :key="friend.id"
             class="friend-item">
           <div class="avatar-container">
-            <img @click="showUser(friend.applyUserid)" :src="friend.applyUser.userAvatarUrl||defaultPicture"
+            <img @click="showUser(friend.applyUserid)" :src="friend.applyUser.avatarUrl||defaultPicture"
                  class="avatar">
           </div>
           <div @click="showUser(friend.applyUser.id)" class="friend-info">

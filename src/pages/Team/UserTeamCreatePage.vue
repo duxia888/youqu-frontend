@@ -33,7 +33,9 @@ const listTeam = async (val = '') => {
   });
   if (res?.code === 0) {
     teamList.value = res.data;
-  } else {
+  } else if (res?.code === 40001) {
+    Toast.fail("未创建队伍")
+  }else {
     Toast.fail('加载队伍失败，请刷新重试');
   }
 }

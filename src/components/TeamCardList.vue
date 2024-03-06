@@ -30,7 +30,7 @@ const props = withDefaults(defineProps<TeamCardListProps>(), {
   teamList: [] as TeamType[],
 });
 
-console.log("props.teamList",props)
+// console.log("props.teamList",props)
 
 const preJoinTeam = (team: TeamType) => {
   joinTeamId.value = team.id;

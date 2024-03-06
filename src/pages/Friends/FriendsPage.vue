@@ -71,7 +71,7 @@ const resetColor = (event) => {
             @touchstart="changeColor($event)" @mouseup="resetColor($event)" @touchend="resetColor($event)">
           <div class="avatar-container">
             <img @click="showUser(friend.id)"
-                 :src="friend.userAvatarUrl??defaultPicture" class="avatar">
+                 :src="friend.avatarUrl??defaultPicture" class="avatar">
           </div>
           <div class="friend-info">
             <div @click="showUser(friend.id)" class="friend-name">

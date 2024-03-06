@@ -18,10 +18,17 @@ const initFormData = {
   "status": 0,
 }
 
-const minDate = new Date();
+const onConfirm = (date) => {
+  let month: string | number = date.getMonth() + 1;
+  month = month < 10 ? "0" + month : month;
+  let day = date.getDate();
+  day = day < 10 ? "0" + day : day;
+  addTeamData.value.expireTime = JSON.parse(`${date.getFullYear()}-${month}-${day}`);
+  showPicker.value = false;
+};
 
 // 需要用户填写的表单数据
-const addTeamData = ref({...initFormData})
+const addTeamData = ref({...initFormData});
 
 // 提交
 const onSubmit = async () => {
@@ -63,23 +70,25 @@ const onSubmit = async () => {
             placeholder="请输入队伍描述"
         />
         <van-field
+            v-model="addTeamData.expireTime"
             is-link
             readonly
-            name="datetimePicker"
+            name="calendar"
             label="过期时间"
-            :placeholder="addTeamData.expireTime ?? '点击选择过期时间'"
+            placeholder="点击选择过期时间"
             @click="showPicker = true"
         />
-        <van-popup v-model:show="showPicker" position="bottom">
-          <van-datetime-picker
-              v-model="addTeamData.expireTime"
-              @confirm="showPicker = false"
-              @cancel="showPicker = false"
-              type="datetime"
-              title="请选择过期时间"
-              :min-date="minDate"
-          />
-        </van-popup>
+        <van-calendar v-model:show="showPicker" @confirm="onConfirm" />
+<!--        <van-popup v-model:show="showPicker" position="bottom">-->
+<!--          <van-datetime-picker-->
+<!--              v-model="addTeamData.expireTime"-->
+<!--              @confirm="showPicker = false"-->
+<!--              @cancel="showPicker = false"-->
+<!--              type="datetime"-->
+<!--              title="请选择过期时间"-->
+<!--              :min-date="minDate"-->
+<!--          />-->
+<!--        </van-popup>-->
         <van-field name="stepper" label="最大人数">
           <template #input>
             <van-stepper v-model="addTeamData.maxNum" max="10" min="1"/>
