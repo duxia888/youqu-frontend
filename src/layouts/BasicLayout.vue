@@ -23,12 +23,13 @@ const SHOW_SEARCH = ["/", '/team', '/public_chat', '/user', '/apply']
  * 根据路由切换标题
  */
 router.beforeEach((to, from) => {
-  const toPath = to.path;
-  const route = routes.find((route) => {
-    return toPath == route.path;
-  })
-  document.title = "游趣 - 匹配你的趣友"
-  title.value = route?.title ?? DEFAULT_TITLE;
+  title.value = to.meta.title || DEFAULT_TITLE;
+  // const toPath = to.meta?.path;
+  // const route = routes.find((route) => {
+  //   return toPath == route.path;
+  // })
+  // document.title = "游趣 - 匹配你的趣友"
+  // title.value = route?.title ?? DEFAULT_TITLE;
 })
 
 const onClickLeft = () => {

@@ -14,7 +14,7 @@ const VanDialog = Dialog.Component;
 const password = ref('');
 const joinTeamId = ref(0);
 const currentUser = ref();
-
+const teamId = ref([])
 const router = useRouter();
 
 onMounted(async () => {
@@ -108,6 +108,18 @@ const doDeleteTeam = async (id: number) => {
     Toast.fail('操作失败' + (res.description ? `，${res.description}` : ''));
   }
 }
+
+/**
+ * 查看队伍
+ * @param id
+ */
+const showTeam = (id) => {
+  teamId.value.push(id)
+  router.push({
+    name: "teamShow",
+    query: {teamId: teamId.value},
+  })
+}
 </script>
 
 <template>
@@ -155,6 +167,7 @@ const doDeleteTeam = async (id: number) => {
         <van-button v-if="team.userId === currentUser?.id" size="mini" type="danger" plain
                     @click="doDeleteTeam(team.id)">解散队伍
         </van-button>
+        <van-button v-if="team.hasJoin" plain size="mini" type="default" icon="eye-o" @click="showTeam(team.id)">查看队伍</van-button>
       </template>
     </van-card>
     <!--输入密码框-->

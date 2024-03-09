@@ -17,18 +17,17 @@ const initFormData = {
   "password": "",
   "status": 0,
 }
+// 需要用户填写的表单数据
+const addTeamData = ref({...initFormData});
 
 const onConfirm = (date) => {
   let month: string | number = date.getMonth() + 1;
   month = month < 10 ? "0" + month : month;
   let day = date.getDate();
   day = day < 10 ? "0" + day : day;
-  addTeamData.value.expireTime = JSON.parse(`${date.getFullYear()}-${month}-${day}`);
+  addTeamData.value.expireTime = `${date.getFullYear()}-${month}-${day}`;
   showPicker.value = false;
 };
-
-// 需要用户填写的表单数据
-const addTeamData = ref({...initFormData});
 
 // 提交
 const onSubmit = async () => {
@@ -45,7 +44,7 @@ const onSubmit = async () => {
       replace: true,
     });
   } else {
-    Toast.success('添加失败');
+    Toast.success(res.description);
   }
 }
 </script>

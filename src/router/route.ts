@@ -19,30 +19,32 @@ import ChatPage from "../pages/ChatPage.vue";
 import AfterSignUp from "../pages/AfterSignUp.vue";
 import UserTagPage from "../pages/User/UserTagPage.vue";
 import PasswordEdit from "../pages/User/PasswordEdit.vue";
+import TeamShow from "../pages/Team/TeamShow.vue";
 
 //定义一些路由
 const routes = [
     { path: '/', component: Index },
-    { path: '/team', title: '找队伍', component: Team },
-    { path: '/team/add', title: '创建队伍', component: TeamAddPage },
-    { path: '/team/update', title: '更新队伍', component: TeamUpdatePage },
-    { path: '/chat', component: ChatPage },
-    { path: '/public_chat', title: '公共聊天室',component: ChatCommon },
-    { path: '/friends', title: '我的好友', component: FriendsPage },
-    { path: '/apply', title: '新的朋友', component: ApplicationRecord },
-    { path: '/search', title: '找伙伴', component: SearchPage },
-    {path: '/after', title: '标签', component: AfterSignUp, meta: {layout: 'after'}},
-    { path: '/user', title: '个人信息', component: UserPage },
-    {path: '/user/tag', title: "标签", component: UserTagPage},
-    { path: '/user/list', title: '用户列表', component: SearchResultPage },
-    { path: '/user/show/:userId', title: '好友信息',name: 'userShow', component: UserShow },
-    { path: '/user/edit', title: '编辑信息', component: UserEditPage },
-    { path: '/user/update', title: '更新信息', component: UserUpdatePage },
+    { path: '/team', meta: {title: '找队伍'}, component: Team },
+    { path: '/team/add', meta: {title: '创建队伍'}, component: TeamAddPage },
+    { path: '/team/update', meta: {title: '更新队伍'}, component: TeamUpdatePage },
+    { path: '/team/show', meta: {title: '查看队伍'}, name: 'teamShow', component: TeamShow },
+    { path: '/chat', meta: {title: '聊天'}, component: ChatPage },
+    { path: '/public_chat', meta: {title: '公共聊天室'},component: ChatCommon },
+    { path: '/friends', meta: {title: '我的好友'}, component: FriendsPage },
+    { path: '/apply', meta: {title: '新的朋友'}, component: ApplicationRecord },
+    { path: '/search', meta: {title: '找伙伴'}, component: SearchPage },
+    { path: '/after', component: AfterSignUp, meta: {layout: 'after', title: '标签'}},
+    { path: '/user', meta: {title: '个人信息'}, component: UserPage },
+    { path: '/user/tag', meta: {title: "标签"}, component: UserTagPage},
+    { path: '/user/list', meta: {title: '用户列表'}, component: SearchResultPage },
+    { path: '/user/show/:userId', meta: {title: "查看好友",}, name: 'userShow', component: UserShow },
+    { path: '/user/edit', meta: {title: '编辑信息'}, component: UserEditPage },
+    { path: '/user/update', meta: {title: '更新信息'}, component: UserUpdatePage },
     { path: '/user/login', meta: {layout:"login"}, component: UserLoginPage },
     { path: '/user/register', meta: {layout:"register"}, component: UserRegister },
-    { path: '/user/team/join', title: '加入队伍', component: UserTeamJoinPage },
-    { path: '/user/team/create', title: '创建队伍', component: UserTeamCreatePage },
-    {path: '/user/password', title: '修改密码', component: PasswordEdit}
+    { path: '/user/team/join', meta: {title: '加入队伍'}, component: UserTeamJoinPage },
+    { path: '/user/team/create', meta: {title: '创建队伍'}, component: UserTeamCreatePage },
+    { path: '/user/password', meta: {title: '修改密码'}, component: PasswordEdit}
 ]
 
 export default routes;
