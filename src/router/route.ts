@@ -35,7 +35,7 @@ const routes = [
     { path: '/user', title: '个人信息', component: UserPage },
     {path: '/user/tag', title: "标签", component: UserTagPage},
     { path: '/user/list', title: '用户列表', component: SearchResultPage },
-    { path: '/user/show/:userId', meta: {title: "查看用户"}, name: 'userShow', component: UserShow },
+    { path: '/user/show/:userId', title: '好友信息',name: 'userShow', component: UserShow },
     { path: '/user/edit', title: '编辑信息', component: UserEditPage },
     { path: '/user/update', title: '更新信息', component: UserUpdatePage },
     { path: '/user/login', meta: {layout:"login"}, component: UserLoginPage },

@@ -77,6 +77,7 @@ const deleteFriend = async () => {
 }
 
 onMounted(async () => {
+  console.log(route.matched[0].path)
   user.value = (await myAxios.get(`/user/${route.params.userId}`)).data
   const currentUser = await getCurrent()
   loginUser.value.user = currentUser

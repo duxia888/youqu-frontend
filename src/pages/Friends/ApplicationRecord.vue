@@ -54,6 +54,7 @@ const showUser = (id: number) => {
     }
   })
 }
+
 </script>
 
 <template>

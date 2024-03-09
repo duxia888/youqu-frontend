@@ -312,10 +312,10 @@ window.showUser = (id) => {
     </div>
     <div style="margin-top: 10px;" v-if="route.path==='/public_chat'">
     </div>
-    <div v-else class="heard">
-      <p v-if="stats.chatType===stats.chatEnum.PRIVATE_CHAT">{{ stats.chatUser.username.slice(0, 14) }}</p>
-      <p v-if="stats.chatType===stats.chatEnum.TEAM_CHAT">{{ stats.team.teamName.slice(0, 14) }}</p>
-    </div>
+<!--    <div v-else class="heard">-->
+<!--      <p v-if="stats.chatType===stats.chatEnum.PRIVATE_CHAT">{{ stats.chatUser.username.slice(0, 14) }}</p>-->
+<!--      <p v-if="stats.chatType===stats.chatEnum.TEAM_CHAT">{{ stats.team.teamName.slice(0, 14) }}</p>-->
+<!--    </div>-->
     <div class="content" ref="chatRoom" v-html="stats.content"></div>
     <div class="send">
       <V3Emoji
