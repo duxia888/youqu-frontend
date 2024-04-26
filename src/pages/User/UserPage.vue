@@ -26,7 +26,7 @@ const router = useRouter();
 onMounted(async () => {
   let currentUser = await getCurrent();
   if (currentUser) {
-    if (currentUser.tags) {
+    if (currentUser.tags && currentUser.tags != '[]') {
       currentUser.tags = JSON.parse(currentUser.tags)
     }else {
       currentUser.tags = "此用户暂未设置标签";
@@ -82,7 +82,10 @@ const doQuitCancel = () => {
         <span>我的标签</span>
       </template>
       <template #value>
-        <van-tag v-for="tag in user.tags" plain type="danger" style="margin-right: 8px;margin-top: 8px">
+        <van-tag v-if="user.tags == '此用户暂未设置标签'" plain type="danger" style="margin-top: 8px">
+            {{user.tags}}
+        </van-tag>
+        <van-tag v-else="user.tags != '此用户暂未设置标签'" v-for="tag in user.tags" plain type="danger" style="margin-right: 8px;margin-top: 8px">
           {{ tag }}
         </van-tag>
       </template>

@@ -1,4 +1,4 @@
-import boys from "../assets/boys.jpeg"
+import boys from "../assets/youqu1.jpg"
 
 export const defaultPicture = boys
 

@@ -72,9 +72,12 @@ const onSubmit = async () => {
     "userPassword": password.value,
     "username": username.value
   })
-  if (register) {
+  console.log(register)
+  if (register.code == 0) {
     Toast.success('注册成功')
     await router.push("/user/login")
+  }else{
+    Toast.fail(register.description+'，请重试')
   }
 };
 </script>

@@ -17,7 +17,7 @@ const NOT_SHOW_NAVBAR_AND_TABBAR = ["/user/login", '/user/register']
 // const NOT_SHOW_NAVBAR = ['/apply', '/search', '/user/show/:userId','/user/list', '/chat', '/user/team/join', '/user/team/create', '/user/update', '/user/edit']
 const SHOW_NAVBAR = ['/', '/friends', '/public_chat', '/team', '/user']
 const INDEX_SHOW= ['/']
-const SHOW_SEARCH = ["/", '/team', '/public_chat', '/user', '/apply']
+const SHOW_SEARCH = ["/", '/team', '/public_chat', '/user']
 
 /**
  * 根据路由切换标题
@@ -74,7 +74,7 @@ const onClickRight = async () => {
 <!--  </van-nav-bar>-->
   <van-nav-bar v-if="!NOT_SHOW_NAVBAR_AND_TABBAR.includes(route.path)" fixed="fixed" left-arrow
                :title="title" @click-right="onClickRight" @click-left="onClickLeft">
-    <template v-if="route.path ==='/friends' || route.path === '/apply'"#right>
+    <template v-if="route.path ==='/friends'"#right>
       <van-badge :content="applyFriendsCount" v-if="applyFriendsCount>0">
         <notice/>
       </van-badge>

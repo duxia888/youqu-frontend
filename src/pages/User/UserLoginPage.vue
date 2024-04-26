@@ -53,7 +53,7 @@ const onSubmit = async () => {
 <!--  </van-form>-->
   <div style="padding-top:60px;  margin-left: -20px;;min-width: 380px">
     <div class="center">
-      <img alt="聚交园" class="img" :src="defaultPicture">
+      <img alt="游趣" class="img" :src="defaultPicture">
     </div>
     <div style="padding-top: 20px"/>
     <van-row justify="center">

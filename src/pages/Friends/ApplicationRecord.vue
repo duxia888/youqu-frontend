@@ -44,6 +44,7 @@ const canceledApply = async (id: number) => {
 
 onMounted(async () => {
   status.value.applyFriends = (await myAxios.get("/friends/getRecords")).data
+  console.log(status.value.applyFriends)
 })
 
 const showUser = (id: number) => {
